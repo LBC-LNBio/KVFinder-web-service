@@ -18,10 +18,12 @@ fn main() {
         job_path: args.job_path,
     };
     loop {
+        // get the next job from queue. If there is not a job to process then wait 5 seconds.
         let r = kv::worker::get_job();
         match r {
             Ok(j) => {
                 let id = j.id;
+                // process a job and submit the results (update job at the queue).
                 match kv::worker::process(j, &config) {
                     Err(e) => println!("Error processing: {}", e),
                     Ok(output) => match kv::worker::submit_result(id, output) {

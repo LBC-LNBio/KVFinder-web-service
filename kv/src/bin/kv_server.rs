@@ -7,7 +7,8 @@ fn json_error_handler(err: error::JsonPayloadError, _req: &HttpRequest) -> error
     error::InternalError::from_response(err, resp).into()
 }
 
-fn main() {
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
     println!("KVFinder webserver started");
 
     // job timeout 30 minutes, expires after 1 day
@@ -27,5 +28,5 @@ fn main() {
     .bind("0.0.0.0:8081")
     .expect("Cannot bind to port 8081")
     .run()
-    .unwrap();
+    .await
 }

@@ -1,16 +1,20 @@
 [package]
 name = "kv"
-version = "0.2.0"
-authors = ["jgcarvalho <Jose Geraldo>, jvsguerra <Joao Victor>"]
+version = "0.3.0"
+authors = ["Jose Geraldo de Carvalho Pereira <jose.pereira@lnbio.cnpem.br>, Joao Victor da Silva Guerra <joao.guerra@lnbio.cnpem.br>"]
+license = "Apache-2.0"
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-actix-web = "1.0"
+actix-web = "3"
 fasthash = "0.4.0"
 reqwest = "0.9.22"
-serde = "1.0.101"
-serde_json = "1.0"
-toml = "0.5.5"
-structopt = "0.3"
+# reqwest = "0.11.3"
+serde = "1.0.125"
+serde_json = "1.0.64"
+toml = "0.5.8"
+structopt = "0.3.21"
+zstd = "0.7.0"
+base64 = "0.13.0"
