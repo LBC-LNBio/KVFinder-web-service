@@ -37,8 +37,7 @@ class KVJob:
 
     def _add_pdb(self, pdb_fn: str, is_ligand: bool=False):
         with open(pdb_fn) as f:
-            # pdb = f.readlines()
-            pdb = f.read()
+            pdb = f.readlines()
         if is_ligand:
             self.input["pdb_ligand"] = pdb
         else:
@@ -108,7 +107,7 @@ class KVClient:
                 print(results)
                 return None
         else:
-            print(r)
+            # print(r)
             return None
     
 
